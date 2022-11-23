@@ -126,7 +126,7 @@ To run the project, execute the following command:
 
 ## 👥 Authors 
 
-👤 **Omachi John**
+👤 **Aleazar Yilma*
 
 - GitHub: [@Agetuni](https://github.com/Agetuni)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/aleazaryilma/)

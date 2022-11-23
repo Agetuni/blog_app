@@ -7,7 +7,7 @@ class CreatePost < ActiveRecord::Migration[7.0]
       t.integer :likes_counter
 
       t.references :author, null: false, forign_key: {to_table: :users}
-      t.timestamps :
+      t.timestamps 
     end
   end
-ends
+end

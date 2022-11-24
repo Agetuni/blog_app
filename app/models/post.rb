@@ -7,10 +7,10 @@ class Post < ApplicationRecord
   validates :title, presence: { message: 'Title can not be blank' },
                     length: { maximum: 250,
                               too_long: 'Title can only accept a maximum of 250 characters' }
-  validates :commentsCounter,
+  validates :comments_counter,
             numericality: { only_integer: true, greater_than_or_equal_to: 0,
                             message: 'commentsCounter must be integer and >=0' }
-  validates :likesCounter,
+  validates :likes_counter,
             numericality: { only_integer: true, greater_than_or_equal_to: 0,
                             message: 'likesCounter must be integer and >=0' }
   def five_recent_comments

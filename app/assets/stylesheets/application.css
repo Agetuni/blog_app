@@ -78,9 +78,8 @@ button {
 }
 
 .comment_container {
-    width: 95%;
-    border: 1px black solid;
-    margin: 12px;
-    padding: 10px;
-  
-  }
+  width: 95%;
+  border: 1px black solid;
+  margin: 12px;
+  padding: 10px;
+}

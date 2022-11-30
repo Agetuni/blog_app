@@ -3,25 +3,25 @@
             <%= image_tag("profile-picture.jpg", width:'100vw') %>
             <div class="cards__info grid">
                 
-                    <h2 class="cards__title"><%= link_to @user.name, @user %></h2>
-                    <h4 class="cards__item__ra">Number of posts: <%= @user.post_counter || 0%></h4>                
+                    <h2 class="cards__title"> <%= link_to @user.name, @user %></h2>
+                    <h4 class="cards__item__ra"> Number of posts: <%= @user.post_counter || 0%></h4>                
             </div>
              <% end %>
         </article>
-  <div class="user_bio">
+  <div class="user_bio"> 
     <h2>Bio</h2>
     <p><%= @user.bio%></p>
   </div>
-<% @user.three_most_recent_post.each do |post| %>
+<% @user.three_most_recent_post.each do |post| %> 
   <div class="comment_container">
       <h2><%= post.title%></h2>
       <p><%= post.text%></p>
       <h3>Comment <%= post.comments_counter%>,  <span>Likes <%= post.likes_counter%></span></h3>
   </div>
-<%end%>
+<%end%> 
 
 <div class="button-wrapper">
   <button class="button">
-      <%= link_to "See all posts", user_posts_path(@user), {:class => "button_class"} %>
+      <%= link_to "See all posts", user_posts_path(@user), {:class => "button_class"}  %>
   </button>
 </div>

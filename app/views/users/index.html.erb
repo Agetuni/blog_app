@@ -1,9 +1,13 @@
-<h1> Users </h1>
-<ul>
-<% @users.each do |user| %>
-<li><%= user.id %></li>
-<li><%= user.name %></li>
-<li><%= user.bio %></li>
-<li><%= user.photo %></li>
-<% end %>
-</ul>
+<section class="container grid">  
+    <% @users.each do |user| %>
+        <article class="cards">            
+         <%= link_to user_path(user.id) do %>
+            <%= image_tag("profile-picture.jpg", width:'100vw') %>
+            <div class="cards__info grid">
+                
+                    <h2 class="cards__title"><%= link_to user.name, user %></h2>
+                    <h4 class="cards__item__ra">Number of posts: <%= user.post_counter || 0%></h4>                
+            </div>
+             <% end %>
+        </article>
+    <% end %>   

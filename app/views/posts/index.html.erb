@@ -1,30 +1,40 @@
+<main>
 
-<div class="user_container">
-    <div class="user_data">
-      <h2><%= @user.name%></h2>
-      <p>Number of posts: <%= @user.post_counter %></p>
+  <section>
+    <div class="user-header">
+      <div class="img_div">
+        <img src="<%= @user.photo %>" />
+      </div>
+      <div class="info_div">
+        <h1><%= @user.name %></h1> 
+        <span>Number of posts: <%= @user.posts_counter%></span>
+      </div>
     </div>
-  </div>
+    <% @count = 0 %>
+    <%@posts.each do |post|%>
+      <div class="single-post">
+        <%= link_to user_post_path(@user, post) do%>
+          <div class="user-post-preview">
+          <h2>Post #<%= @count += 1 %></h2>
+            <h3><%= post.title%></h3>
+            <p><%= post.text %></p>
+            <p class="post-data">
+              <span>Comments: <%= post.comments_counter %></span>
+              <span>Likes: <%= post.likes_counter %></span>
+            </p>
+          </div>
+          <div class="post-comments-preview">
+            <h2>Comments</h2>
+            <% post.last_five_comments.each do |comment| %>
+              <p>Comment from <%=comment.author.name %>: <%=comment.text %></p>
+            <% end %>
+          </div>
+        <%end%>
+      </div>
+    <%end%>
 
+    <button>Pagination</button>
 
-  <ul>
-  <% @posts.each do |post| %>
-  <li>
-     <div class="user_data_post"><h2>Post#<%= post.id %></h2>
-      <p><%= post.text%></p>
-      <p class="comments-likes">Comments <%= post.comments_counter %>, Likes <%= post.likes_counter %></p></div></li>
-    <ul class="username-comments">
-          <% post.five_recent_comments.each do |comment| %>
-            <li><%= "Username" %> : Comment <%=  comment.author_id %></li>
-          <% end %>
-        </ul>
-   </li>
-<%end%>
-</ul>
+  </section>
 
-<div class="button-wrapper">
-   <%= button_to 'Add New Post', new_user_post_url(id: @user.id), method: :get, class: "button"%>
-  <button class="button">
-      Pagination
-  </button>
-</div>
+</main>

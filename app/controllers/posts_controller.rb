@@ -1,40 +1,32 @@
 class PostsController < ApplicationController
   def index
-    @user = current_user
-    @posts = @user.posts
+    @user = User.find(params[:user_id])
+    @posts = Post.includes(comments: [:author]).where(author_id: params[:user_id])
   end
 
   def show
-    @post = Post.find(params[:id])
-    @user = @post.id
-    @comments = @post.comments
+    @user = User.find(params[:user_id])
+    @post = Post.includes(comments: [:author]).find(params[:id])
   end
 
   def new
-    @post = Post.new
-    @user = current_user
-  end
-
-  def create
-    @post = Post.new(post_params)
-    @post.author_id = current_user.id
-
+    post = Post.new
     respond_to do |format|
-      if @post.save
-        format.html { redirect_to user_post_url(current_user, @post), notice: 'Post was successfully created.' }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-      end
+      format.html { render :new, locals: { post: } }
     end
   end
 
-  private
-
-  def set_post
-    @post = Post.find(params[:id])
-  end
-
-  def post_params
-    params.require(:post).permit(:title, :text, :comments_counter, :likes_counter)
+  def create
+    post = Post.new(title: params[:post][:title], text: params[:post][:text], author: current_user)
+    respond_to do |format|
+      format.html do
+        if post.save
+          redirect_to user_posts_path(current_user.id), notice: 'Posted successfully'
+        else
+          flash[:notice] = 'Error: Not able to create post'
+          render :new, locals: { post: }
+        end
+      end
+    end
   end
 end

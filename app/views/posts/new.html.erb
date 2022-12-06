@@ -1,22 +1,15 @@
-<section class="container grid">
-    <h2 class="post-title">Add New Post :</h2>
-    <%= form_with model: @post, url: user_posts_path, method: :post, local: true, class: "form-control grid" do |form| %>
+<%# posts#new %>
+<main>
+  <h1>New Post</h1>
 
-        <%= form.hidden_field :comments_counter, value: 0 %>
-        <%= form.hidden_field :likes_counter, value: 0 %>
-        
-        <div class="grid">
-            <%= form.label :title %>
-            <%= form.text_field :title, placeholder: "Title", required: true, class: "form-post-title" %>        
-        </div>
 
-        <div class="grid">
-            <%= form.label :text %>
-            <%= form.text_area :text, placeholder: "Type your post here!", rows: 20, required: true,  class: "form-post-text" %>        
-        </div>
-
-        <div>
-            <%= form.submit "Save", class: "button" %>
-        </div>
-    <% end %>
-</section>
+<%= form_with model: Post, url: user_posts_path, method: :post, local:true do |f|%>
+    <div>
+      <%= f.text_field :title, placeholder: "Title", class: "post-input"%>
+    </div>
+    <div>
+      <%= f.text_area :text, placeholder: "Text goes here" %>
+    </div>
+    <%= f.submit "Post", class: 'btn'%>
+  <% end %>
+<main>

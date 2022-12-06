@@ -1,35 +1,44 @@
-require 'rails_helper'
+require_relative '../rails_helper'
 
-RSpec.describe Post, type: :model do
-  before(:all) do
-    @user = User.create(
-      name: 'John Doe',
-      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-      bio: 'Teacher from Mexico.',
-      post_counter: 0
-    )
+RSpec.describe Post, type: :post do
+  before { Post.create(title: 'New Post', comments_counter: 0, likes_counter: 0) }
 
-    @post = Post.create(
-      title: 'Hello World!',
-      text: 'This is my first post.',
-      comments_counter: 0,
-      likes_counter: 0,
-      author_id: @user.id
-    )
+  it 'title should be present' do
+    subject.title = nil
+    expect(subject).to_not be_valid
   end
-  it '@post should be valid' do
-    expect(@post).to be_valid
+
+  it 'title should have less than 250 characters' do
+    subject.title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Sed volutpat placerat tempus. Integer non magna eget augue mattis porttitor.
+    Aliquam pulvinar felis sit amet diam mattis, quis pharetra quam pellentesque.
+    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
+    turpis egestas. Mauris in lorem id odio tempor mollis. Suspendisse eros augue,
+    imperdiet quis quam quis, hendrerit aliquam orci. Vestibulum sit amet lectus mi.
+    Cras vehicula convallis dapibus. Integer porta, arcu et ultrices consectetur,
+    interdum ligula metus et magna. Vivamus nisi nisi, pharetra in sem a, pharetra
+    bibendum est. Fusce finibus'
+    expect(subject).to_not be_valid
   end
-  it '@post should have 250 maximum length' do
-    @post.title = 'Helo World!'
-    expect(@post).to be_valid
+
+  it 'comments_counter greater or equal to 0' do
+    subject.comments_counter = -2
+    expect(subject).to_not be_valid
   end
-  it '@post comments_counter to be an integer greater than or equal to 0' do
-    @post.comments_counter = 'one'
-    expect(@post).to_not be_valid
+
+  it 'like counter test' do
+    subject.likes_counter = -5
+    expect(subject).to_not be_valid
   end
-  it '@post likes_counter to be an integer greater than or equal to 0' do
-    @post.likes_counter = 'one'
-    expect(@post).to_not be_valid
+
+  it 'recent comments method' do
+    expect(subject.last_five_comments).to eq([])
+  end
+
+  it 'counter method test' do
+    author = User.create!(name: 'diego', posts_counter: 0)
+    Post.create!(author:, title: 'the post', comments_counter: 0, likes_counter: 0)
+    lastauthor = User.last
+    expect(lastauthor.posts_counter).to eq 1
   end
 end

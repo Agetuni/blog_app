@@ -1,16 +1,18 @@
-<section class="container grid">   
+<main>
+  <h1 class="allUsrTitle">All users list</h1>  
+  <section>
+    <ul>
     <% @users.each do |user| %>
-
-        <article class="cards"> 
-
-         <%= link_to user_path(user.id) do %>
-
-            <%= image_tag("profile-picture.jpg", width:'100vw') %>
-            <div class="cards__info grid">
-                
-                    <h2 class= "cards__title"><%= link_to user.name, user %></h2>
-                    <h4 class= "cards__item__ra">Number of posts: <%= user.post_counter || 0%></h4>                
-            </div>
-             <% end %>
-        </article>
-    <% end %>   
+      <%= link_to user_path(user.id) do %>
+        <li>
+          <div class="img_div"><%= image_tag user.photo %></div>
+          <div class="info_div">
+            <h2><%= user.name %></h2>
+            <span>Number of posts: <%= user.posts_counter %></span>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+  </section>
+</main>

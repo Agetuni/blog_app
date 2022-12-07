@@ -1,8 +1,33 @@
 <a name="readme-top"></a>
 
+<!--
+HOW TO USE:
+This is an example of how you may give instructions on setting up your project locally.
+
+Modify this file to match your project and remove sections that don't apply.
+
+REQUIRED SECTIONS:
+- Table of Contents
+- About the Project
+  - Built With
+  - Live Demo
+- Getting Started
+- Authors
+- Future Features
+- Contributing
+- Show your support
+- Acknowledgements
+- License
+
+After you're finished please remove all the comments and instructions!
+-->
+
 <div align="center">
 
+  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
   <br/>
+
+  <h3><b>Microverse README Template</b></h3>
 
 </div>
 
@@ -14,7 +39,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [:card_index: Entity Relationship Diagram](#er-diagram)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
@@ -33,28 +57,30 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Blog App <a name="about-project"></a>
+# 📖 Blog ROR App <a name="about-project"></a>
 
-![blog-gif](https://ansarshome.files.wordpress.com/2021/09/d3464a4351fdf340ccb6bb37c281381a.gif)
+> Describe your project in 1 or 2 sentences.
 
-**Blog App** will be a classic example of a blog website. You will create a fully functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
+**Blog ROR App** is an App created with Ruby on Rails and Postgresql, that allows all users to post, like comments and check previous posts.
+![Screen Shot 2022-11-22 at 14 49 33](https://user-images.githubusercontent.com/99816838/203434364-919eeb81-a0c9-4781-b37e-f62766996a9e.png)
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
+> Ruby on Rails / Postresql
+
 <details>
   <summary>Client</summary>
   <ul>
-    <li>HTML, CSS</li>
-    <li>JavaScript</li>
+    <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
-    <li>Ruby on Rails</li>
+    <li><a href="https://www.ruby-lang.org/en/">ruby on rails server</a></li>
   </ul>
 </details>
 
@@ -69,22 +95,21 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Create and run necessary migration files]**
-- **[Match table and column names to the ERD diagram.]**
+> Describe between 1-3 key features of the application.
+
+- **[key_feature_1]**
+- **[key_feature_2]**
+- **[key_feature_3]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ER DIAGRAM-->
-
-## :card_index: Entity Relationship Diagram <a name="er-diagram"></a>
-
-![er-diagram](https://user-images.githubusercontent.com/84629565/203113736-82dacec0-6b75-42e6-b87e-8bf441ffbe57.png)
-
 <!-- LIVE DEMO -->
 
-## 🚀 Live Demo <a name="live-demo"></a>
+## 🚀 Live Demo Soon <a name="live-demo"></a>
 
-- in progress :smile: [Live Demo Link](https://yourdeployedapplicationlink.com)
+> Add a link to your deployed project.
+
+- [Live Demo Link](https://yourdeployedapplicationlink.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -92,44 +117,98 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
+> Describe how a new developer could make use of your project.
+
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
 In order to run this project you need:
-`Git` and `Ruby`
 
-```
+<!--
+Example command:
+
+```sh
  gem install rails
 ```
+ -->
+
+### Setup
+
+Clone this repository to your desired folder:
+
+<!--
+Example commands:
+
+```sh
+  cd my-folder
+  git clone git@github.com:myaccount/my-project.git
+```
+--->
 
 ### Install
 
 Install this project with:
 
+<!--
+Example command:
+
 ```sh
-  bundle install
+  cd my-project
+  gem install
 ```
+--->
 
 ### Usage
 
 To run the project, execute the following command:
 
+<!--
+Example command:
+
 ```sh
-  rails server or rails s
+  rails server
 ```
+--->
+
+### Run tests
+
+To run tests, run the following command:
+
+<!--
+Example command:
+
+```sh
+  bin/rails test test/models/article_test.rb
+```
+--->
+
+### Deployment
+
+You can deploy this project using:
+
+<!--
+Example:
+
+```sh
+
+```
+ -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
 
-## 👥 Authors 
+## 👥 Authors <a name="authors"></a>
 
-👤 **Aleazar Yilma*
+> Mention all of the collaborators of this project.
 
-- GitHub: [@Agetuni](https://github.com/Agetuni)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/aleazaryilma/)
-- AngelList: [timo-wester](https://angel.co/u/aleazar-yilma-1)
+👤 **Federico Luna V. **
+
+- GitHub: [@Flunavgt](https://github.com/Flunavgt)
+- Twitter: [@flunavgt](https://twitter.com/flunavgt)
+- LinkedIn: [federico-luna-Gt](https://linkedin.com/in/federico-luna-Gt)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -137,9 +216,11 @@ To run the project, execute the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Controllers specs]**
-- [ ] **[Processing data in models]**
-- [ ] **[Views]**
+> Describe 1 - 3 features you will add to the project.
+
+- [ ] **[new_feature_1]**
+- [ ] **[new_feature_2]**
+- [ ] **[new_feature_3]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -157,7 +238,9 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-Give a ⭐️ if you like this project!
+> Write a message to encourage readers to support your project
+
+If you like this project...
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -165,10 +248,9 @@ Give a ⭐️ if you like this project!
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank:
+> Give credit to everyone who inspired your codebase.
 
-- [Microverse](microverse.org)
-- Code Reviewers
+I would like to thank...
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -176,7 +258,9 @@ I would like to thank:
 
 ## ❓ FAQ <a name="faq"></a>
 
-- **[Question_1d]**
+> Add at least 2 questions new developers would ask when they decide to use your project.
+
+- **[Question_1]**
 
   - [Answer_1]
 
@@ -191,5 +275,7 @@ I would like to thank:
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./MIT.md) licensed.
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

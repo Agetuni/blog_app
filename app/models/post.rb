@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   def last_five_comments
     comments.last(5)
   end
-  
+
   def update_posts_counter
     author.increment!(:posts_counter)
   end

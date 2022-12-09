@@ -1,9 +1,27 @@
 class PostsController < ApplicationController
   load_and_authorize_resource
+  def create
+    puts user_params
+    post = Post.new(user_params, author: current_user)
+    respond_to do |format|
+      format.html do
+        if post.save
+          redirect_to user_posts_path(current_user.id), notice: 'Posted successfully'
+        else
+          flash[:notice] = 'Error: Not able to create post'
+          render :new, locals: { post: }
+        end
+      end
+    end
+  end
 
   def index
     @user = User.find(params[:user_id])
     @posts = Post.includes(comments: [:author]).where(author_id: params[:user_id])
+    respond_to do |format|
+      format.html
+      format.json { render json: @posts }
+    end
   end
 
   def show
@@ -18,20 +36,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def create
-    post = Post.new(title: params[:post][:title], text: params[:post][:text], author: current_user)
-    respond_to do |format|
-      format.html do
-        if post.save
-          redirect_to user_posts_path(current_user.id), notice: 'Posted successfully'
-        else
-          flash[:notice] = 'Error: Not able to create post'
-          render :new, locals: { post: }
-        end
-      end
-    end
-  end
-
   def destroy
     post = Post.find(params[:id])
     user = User.find(post.author_id)
@@ -43,7 +47,7 @@ class PostsController < ApplicationController
 
   private
 
-  def my_sanitizer
-    params.require(:user_id).permit(:name)
+  def user_params
+    params.require(:post).permit(:title, :text)
   end
 end
